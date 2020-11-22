@@ -1,0 +1,14 @@
+﻿@{
+	ViewData["Title"] = "Desk";
+}
+
+@if (String.IsNullOrEmpty(ViewData["message"].ToString()))
+{
+	<div class="alert alert-warning" role="alert">
+  Please provide a desk id.
+</div>
+	<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">&lt; Back</a>
+}
+else{
+	@ViewData["message"]
+}

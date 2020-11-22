@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div style="padding-top:20px;">
+@using System.Security.Principal
+@if (User.Identity.IsAuthenticated)
+{
+    <form method="get" asp-controller="Home" asp-action="Desk">
+        <div class="form-row">
+      
+        <div class="form-group">
+            <label for="did">Desk Id:</label>
+    <input id="did" name="did" type="text" class="form-control c-input" placeholder="Desk Id">
+</div>
+        </div>     <button type="submit" class="btn btn-primary" style="margin-right:5px">Submit</button>
+    </form>
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        if(params.has('did')){
+            document.getElementById('did').value = params.get('did');
+        }
+    </script>
+}else{
+    <h2>
+    Sign to your Azure AD B2C tenant.
+</h2>
+}
+</div>
